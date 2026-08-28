@@ -1,14 +1,24 @@
-import clsx from 'clsx';
-
-// Сообщаем вебпаку, что этот файл использует это изображение.
+import { ArticleSettings } from '../article-params-form/ArticleParamsForm';
 import plane from 'src/images/plane.png';
 import { Text } from 'src/ui/text';
-
 import styles from './Article.module.scss';
 
-export const Article = () => {
+// Тип пропсов для компонента Article
+type ArticleProps = {
+	articleSettings: ArticleSettings;
+};
+
+export const Article = ({}: ArticleProps) => {
 	return (
-		<article className={clsx(styles.article)}>
+		<article
+			className={styles.article}
+			style={{
+				fontFamily: 'var(--font-family)',
+				fontSize: 'var(--font-size)',
+				color: 'var(--font-color)',
+				backgroundColor: 'var(--bg-color)',
+				width: 'var(--container-width)',
+			}}>
 			<Text as='h1' size={45} weight={800} uppercase dynamicLite>
 				Портрет Западной Швейцарии
 			</Text>
